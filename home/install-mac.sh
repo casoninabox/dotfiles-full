@@ -20,6 +20,7 @@ neat=(
   stormssh
   youtube-dl
   the_silver_searcher
+  imagemagick
 )
 
 utils=(
