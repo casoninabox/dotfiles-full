@@ -14,15 +14,16 @@ if [ -f ~/.bash_local ]; then
     . ~/.bash_local
 fi
 
-export GOPATH=$HOME/dev/go
+source ~/.exports
+
+export GOPATH=$HOME/projects/go
 PATH=/usr/local/bin:/usr/local/go/bin:$PATH
-PATH=$JAVA_HOME/bin:$PATH
-PATH=$HOME/bin:$PATH
-PATH=$JAVA_HOME/bin:$PATH
+PATH=$PATH:$JAVA_HOME/bin
 PATH=$PATH:$HOME/bin
 PATH=$PATH:$GOPATH/bin
 
 # common aliases 
+alias ls='ls -F --color --show-control-chars'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -30,6 +31,14 @@ alias l='ls -CF'
 alias st='git status'
 alias hs='homesick'
 alias hsgit='cd ~/.homesick/repos/dotfiles'
+
+alias ex='open . &'
+alias tod='cd ~/projects'
+alias tog='cd ~/Google\ Drive'
+alias killds='rm -f $(find . -name ".DS_Store" -type f)'
+alias sshul='ssh ubuntu@ultilabs.xyz'
+alias sshcc='ssh ubuntu@cason.cc'
+alias gitlogs='git log --decorate --graph --oneline --all'
 
 # If not running interactively, don't do anything
 case $- in
@@ -124,7 +133,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
 # Avoid duplicates
 export HISTCONTROL=ignoredups:erasedups  
 # When the shell exits, append to the history file instead of overwriting it
@@ -148,23 +156,22 @@ function dockerip {
   docker inspect --format '{{ .NetworkSettings.IPAddress }}' $1
 }
 
-# ssh to a docker container by name using the insecure key
-function scraw {
-  ssh scraw@$(dockerip $1) -i ~/.ssh/docker_insecure_key
-}
-
-function scraw-push-ssh {
-  scp -i ~/.ssh/docker_insecure_key $2 scraw@$(dockerip $1):~/.ssh/id_rsa
-}
-
 function docker-clean {
   docker rm $(docker ps -a -q)
   docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
 }
 
+yts() {
+  youtube-dl --no-mtime -f bestaudio[ext=mp3] --extract-audio --prefer-ffmpeg --audio-format "mp3" -i -o \(title\)s.%\(ext\)s $1
+}
+
+yt() {
+  youtube-dl --no-mtime -f bestvideo[ext=mp4]+bestaudio -i -o %\(title\)s.%\(ext\)s $1
+}
+
 # set up resty if it's there
-if [ -e ~/.restyrc ]; then
-    . ~/.restyrc
+if [ -e ~/.resty ]; then
+    . ~/.resty
 fi
 
 # Connect to $1 with credentials $1 : $2.

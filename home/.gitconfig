@@ -1,6 +1,6 @@
 [user]
-	name = Nathan Craddock
-	email = nkcraddock@gmail.com
+	name = Cason Clagg
+	email = casonclagg@gmail.com
 [push]
 	default = simple
 [format]
@@ -21,13 +21,13 @@
   spull = !git stash save && git pull --rebase && git stash pop
 [core]
   autocrlf = input
-	editor = /usr/local/bin/mvim -v
+	editor = atom --wait
 	excludesfile = ~/.gitignore
   pager = less -X
 [branch]
   autosetuprebase = always
 [diff]
-  tool = vimdiff
+  tool = kdiff3
 
 [url "git@bitbucket.org:"]
       insteadOf = bb:
