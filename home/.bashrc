@@ -160,13 +160,45 @@ function docker-clean {
   docker rm $(docker ps -a -q)
   docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
 }
+# `a` with no arguments opens the current directory in Atom Editor, otherwise
+# opens the given location
+function a() {
+  if [ $# -eq 0 ]; then
+    atom .;
+  else
+    atom "$@";
+  fi;
+}
 
-yts() {
+# Create a new directory and enter it
+function mkd() {
+  mkdir -p "$@" && cd "$_";
+}
+
+function yts() {
   youtube-dl --no-mtime -f bestaudio[ext=mp3] --extract-audio --prefer-ffmpeg --audio-format "mp3" -i -o \(title\)s.%\(ext\)s $1
 }
 
-yt() {
+function yt() {
   youtube-dl --no-mtime -f bestvideo[ext=mp4]+bestaudio -i -o %\(title\)s.%\(ext\)s $1
+}
+
+# `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
+# the `.git` directory, listing directories first. The output gets piped into
+# `less` with options to preserve color and line numbers, unless the output is
+# small enough for one screen.
+function tre() {
+  tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+}
+
+# `o` with no arguments opens the current directory, otherwise opens the given
+# location
+function o() {
+  if [ $# -eq 0 ]; then
+    open .;
+  else
+    open "$@";
+  fi;
 }
 
 # set up resty if it's there

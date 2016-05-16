@@ -84,6 +84,8 @@ casks=(
   vlc
   volumemixer
   webstorm
+  mou
+  virtualbox
 )
 
 pips=(
