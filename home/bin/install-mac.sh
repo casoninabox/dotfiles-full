@@ -167,11 +167,6 @@ ruby-install ruby
 chruby ruby-2.3.0
 ruby -v
 
-echo "Installing homesick"
-sudo gem install homesick
-homesick clone casoninabox/dotfiles-full
-homesick symlink dotfiles-full
-
 echo "Installing Java ..."
 brew cask install java
 
