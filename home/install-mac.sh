@@ -111,20 +111,6 @@ fonts=(
 ######################################## End of app list ########################################
 set +e
 
-if test ! $(which brew); then
-  echo "Installing Xcode ..."
-  xcode-select --install
-
-  echo "Installing Homebrew ..."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-else
-  echo "Updating Homebrew ..."
-  brew update
-  brew upgrade
-fi
-brew doctor
-brew tap homebrew/dupes
-
 fails=()
 
 function print_red {
