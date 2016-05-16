@@ -17,7 +17,6 @@ neat=(
   cheat
   httpie
   lnav
-  poppler
   stormssh
   youtube-dl
   the_silver_searcher
