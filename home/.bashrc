@@ -1,13 +1,13 @@
 #!/bin/bash
 os=`uname`
 
-if [[ "$os" == 'Linux' ]]; then
-  JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:bin/javac::")
-  alias ls='ls --color=auto'
-elif [[ "$os" == 'Darwin' ]]; then
-  JAVA_HOME=`/usr/libexec/java_home -v1.7`
-  alias ls='ls -G'
-fi
+# if [[ "$os" == 'Linux' ]]; then
+#   JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:bin/javac::")
+#   alias ls='ls --color=auto'
+# elif [[ "$os" == 'Darwin' ]]; then
+#   JAVA_HOME=`/usr/libexec/java_home -v1.7`
+#   alias ls='ls -G'
+# fi
 
 # run local bash stuff (pc-specific aliases and such)
 if [ -f ~/.bash_local ]; then
@@ -15,7 +15,6 @@ if [ -f ~/.bash_local ]; then
 fi
 
 source ~/.exports
-source ~/.osx
 source ~/.prompt
 
 export GOPATH=$HOME/projects/go
