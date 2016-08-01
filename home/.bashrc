@@ -15,6 +15,7 @@ if [ -f ~/.bash_local ]; then
 fi
 
 source ~/.exports
+source ~/.osx
 
 export GOPATH=$HOME/projects/go
 PATH=/usr/local/bin:/usr/local/go/bin:$PATH
@@ -22,15 +23,16 @@ PATH=$PATH:$JAVA_HOME/bin
 PATH=$PATH:$HOME/bin
 PATH=$PATH:$GOPATH/bin
 
-# common aliases 
+###############################################################################
+# Shortcuts                                                                   #
+###############################################################################
 alias ls='ls -F --color --show-control-chars'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
 alias st='git status'
-alias hs='homesick'
-alias hsgit='cd ~/.homesick/repos/dotfiles'
+alias gitlogs='git log --decorate --graph --oneline --all'
 
 alias ex='open . &'
 alias tod='cd ~/projects'
@@ -38,7 +40,43 @@ alias tog='cd ~/Google\ Drive'
 alias killds='rm -f $(find . -name ".DS_Store" -type f)'
 alias sshul='ssh ubuntu@ultilabs.xyz'
 alias sshcc='ssh ubuntu@cason.cc'
-alias gitlogs='git log --decorate --graph --oneline --all'
+
+alias resource='source ~/.bash_profile && echo "Done!"'
+alias ipaddr='ipconfig getifaddr en0'
+
+# File System stuff.
+alias rm="trash" # trash comes from npm: trash-cli
+alias cpwd='pwd|tr -d "\n"|pbcopy'
+alias ..="cd ../"
+alias ...="cd ../../"
+
+# List declared aliases, functions
+alias listaliases="alias | sed 's/=.*//'"
+alias listfunctions="declare -f | grep '^[a-z].* ()' | sed 's/{$//'" # show non _prefixed functions
+
+###############################################################################
+# OSX                                                                         #
+###############################################################################
+
+# Show/hide desktop icons
+alias desktopShow="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+alias desktopHide="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+
+# Show/hide hidden files by default
+alias hiddenFilesShow="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hiddenFilesHide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# Show/hide all filename extensions
+alias fileExtensionsShow="defaults write NSGlobalDomain AppleShowAllExtensions -bool true && killall Finder"
+alias fileExtensionsHide="defaults write NSGlobalDomain AppleShowAllExtensions -bool false && killall Finder"
+
+################
+# Docker
+################
+
+# alias dockerstop
+# alias dockerkill
+alias dockerps='docker ps --format "table {{.Names}}\t{{.ID}}\t{{.Status}}\t{{.RunningFor}}\t{{.Ports}}"'
 
 # If not running interactively, don't do anything
 case $- in
@@ -46,16 +84,8 @@ case $- in
       *) return;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
-
 # append to the history file, don't overwrite it
 shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -134,7 +164,7 @@ if ! shopt -oq posix; then
 fi
 
 # Avoid duplicates
-export HISTCONTROL=ignoredups:erasedups  
+export HISTCONTROL=ignoredups:erasedups
 # When the shell exits, append to the history file instead of overwriting it
 shopt -s histappend
 
@@ -207,7 +237,7 @@ if [ -e ~/.resty ]; then
 fi
 
 # Connect to $1 with credentials $1 : $2.
-# Set up for JSON. Don't encode the request URL. Ignore key warnings. 
+# Set up for JSON. Don't encode the request URL. Ignore key warnings.
 function resty-auth {
   echo "Connecting to $1 with $2"
   resty $1 -H "Content-Type: application/json" -H "Accept: application/json" -Q -k -u $2:$3

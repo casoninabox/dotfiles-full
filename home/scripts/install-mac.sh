@@ -13,11 +13,11 @@ system=(
 )
 
 neat=(
-  archey
-  cheat
-  httpie
-  lnav
-  stormssh
+  # archey
+  # cheat
+  # httpie
+  # lnav
+  # stormssh
   youtube-dl
   the_silver_searcher
   imagemagick
@@ -28,8 +28,8 @@ utils=(
   hh
   htop
   iftop
-  lighttpd
-  mtr
+  # lighttpd
+  # mtr
   ncdu
   nmap
   thefuck
@@ -37,6 +37,7 @@ utils=(
   trash
   wget
   tmux
+  ffmpeg
 )
 
 programming=(
@@ -54,37 +55,37 @@ programming=(
 casks=(
   adobe-reader
   atom
-  betterzipql
+  # betterzipql
   kdiff3
-  cakebrew
+  # cakebrew
   caffeine
-  commander-one
-  dockertoolbox
+  # commander-one
+  # dockertoolbox
   dropbox
   firefox
   google-chrome
   google-drive
   github-desktop
   handbrake
-  licecap
-  iterm2
-  qlcolorcode
-  qlmarkdown
-  qlstephen
-  quicklook-json
-  quicklook-csv
-  launchrocket
-  private-eye
-  satellite-eyes
+  # licecap
+  # iterm2
+  # qlcolorcode
+  # qlmarkdown
+  # qlstephen
+  # quicklook-json
+  # quicklook-csv
+  # launchrocket
+  # private-eye
+  # satellite-eyes
   skype
   slack
   spotify
   transmission
   transmission-remote-gui
   vlc
-  volumemixer
-  webstorm
-  mou
+  # volumemixer
+  # webstorm
+  # mou
   virtualbox
 )
 
@@ -102,8 +103,38 @@ npms=(
 )
 
 apms=(
+  activate-power-mode
   atom-beautify
-  minimap
+  atom-linter-node-dependencies
+  autocomplete-modules
+  double-tag
+  editorconfig
+  emmet
+  file-icons
+  highlight-selected
+  hyperclick
+  js-hyperclick
+  jumpy
+  language-docker
+  language-babel
+  language-ignore
+  language-jade
+  linter
+  linter-docker
+  linter-jsonlint
+  linter-eslint
+  markdown-scroll-sync
+  npm-outdated
+  oceanic-next
+  open-recent
+  pigments
+  project-manager
+  regex-tester
+  seti-syntax
+  slack-ui
+  sync-settings
+  todo-show
+  travis-ci-status
 )
 
 fonts=(
@@ -218,6 +249,6 @@ do
 done
 
 echo "Setting mac defaults"
-source .osx
+source ~/.osx
 
 echo "Done!"
