@@ -126,6 +126,7 @@ sudo ln -s ~/desktop.jpg /System/Library/CoreServices/DefaultDesktop.jpg
 ###############################################################################
 
 # Disable hibernation (speeds up entering sleep mode)
+sudo pmset -a sleep 0
 sudo pmset -a hibernatemode 0
 
 # Remove the sleep image file to save disk space
