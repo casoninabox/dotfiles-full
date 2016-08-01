@@ -15,7 +15,7 @@ if [ -f ~/.bash_local ]; then
 fi
 
 source ~/.exports
-source ~/.prompt
+
 
 export GOPATH=$HOME/projects/go
 PATH=/usr/local/bin:/usr/local/go/bin:$PATH
@@ -235,6 +235,8 @@ function o() {
 if [ -e ~/.resty ]; then
     . ~/.resty
 fi
+
+source ~/.prompt
 
 # Connect to $1 with credentials $1 : $2.
 # Set up for JSON. Don't encode the request URL. Ignore key warnings.
