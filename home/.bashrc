@@ -16,6 +16,7 @@ fi
 
 source ~/.exports
 source ~/.osx
+source ~/.prompt
 
 export GOPATH=$HOME/projects/go
 PATH=/usr/local/bin:/usr/local/go/bin:$PATH
