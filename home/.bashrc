@@ -234,8 +234,8 @@ function o() {
 }
 
 # set up resty if it's there
-if [ -e ~/.resty ]; then
-    . ~/.resty
+if [ -e ~/.restyrc ]; then
+    . ~/.restyrc
 fi
 
 source ~/.prompt
