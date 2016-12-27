@@ -32,9 +32,9 @@ utils=(
   # mtr
   ncdu
   nmap
-  thefuck
-  tree
-  trash
+  #thefuck
+  #tree
+  #trash
   wget
   tmux
   ffmpeg
@@ -56,17 +56,17 @@ casks=(
   adobe-reader
   atom
   # betterzipql
-  kdiff3
+  # kdiff3
   # cakebrew
-  caffeine
+  # caffeine
   # commander-one
   # dockertoolbox
   dropbox
   firefox
-  google-chrome
+  # google-chrome
   google-drive
   github-desktop
-  handbrake
+  # handbrake
   # licecap
   # iterm2
   # qlcolorcode
@@ -77,7 +77,7 @@ casks=(
   # launchrocket
   # private-eye
   # satellite-eyes
-  skype
+  # skype
   slack
   spotify
   transmission
@@ -94,12 +94,12 @@ pips=(
 )
 
 npms=(
-  gitjk
+  # gitjk
   n
   bower
   ionic
   ng6-cli
-  speed-test
+  # speed-test
 )
 
 apms=(
@@ -108,13 +108,13 @@ apms=(
   atom-linter-node-dependencies
   autocomplete-modules
   double-tag
-  editorconfig
-  emmet
-  file-icons
+  #editorconfig
+  # emmet
+  #file-icons
   highlight-selected
   hyperclick
   js-hyperclick
-  jumpy
+  #jumpy
   language-docker
   language-babel
   language-ignore
@@ -123,18 +123,18 @@ apms=(
   linter-docker
   linter-jsonlint
   linter-eslint
-  markdown-scroll-sync
-  npm-outdated
-  oceanic-next
-  open-recent
+  #markdown-scroll-sync
+  #npm-outdated
+  #oceanic-next
+  #open-recent
   pigments
-  project-manager
-  regex-tester
-  seti-syntax
-  slack-ui
-  sync-settings
-  todo-show
-  travis-ci-status
+  #project-manager
+  #regex-tester
+  #seti-syntax
+  #slack-ui
+  #sync-settings
+  #todo-show
+  #travis-ci-status
 )
 
 fonts=(
