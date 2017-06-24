@@ -32,6 +32,7 @@ utils=(
   # mtr
   ncdu
   nmap
+  httpie
   #thefuck
   #tree
   #trash
